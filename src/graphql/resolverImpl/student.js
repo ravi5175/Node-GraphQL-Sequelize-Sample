@@ -1,4 +1,4 @@
-const {student} = require('../../database/models/student');
+const { Student } = require('../../database/models/student');
 // Queries
 function getStudent(id){
     console.log("get student query called");
@@ -7,17 +7,11 @@ function getStudent(id){
 // Mutations
 function createStudent(std){
     console.log("create student mutation called");
-    student.createStudent({
-        name: std.name,
-        age: std.age,
-        course: std.course
-    }).catch(err => {
-        if(err){
-            console.log(err);
-        }else{
-            console.log("Student created");
-        }
-    })
+    return Student.create({
+        name: "Ravi",
+        age: 20,
+        course: "MCA"
+    });
 }
 
 function updateStudent(student){
