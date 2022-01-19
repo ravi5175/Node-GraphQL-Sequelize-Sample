@@ -4,27 +4,41 @@ function getStudent(id){
     console.log("get student query called");
 }
 
+function getAllStudents(){
+    console.log("get all students query called");
+    return Student.findAll();
+}
+
 // Mutations
-function createStudent(std){
+function createStudent(root,args){
     console.log("create student mutation called");
-    return Student.create({
-        name: "Ravi",
-        age: 20,
-        course: "MCA"
+    console.table(args);
+    return Student.create(args.student);
+}
+
+function updateStudent(root,args){
+    console.log("update student mutation called");
+    return Student.update(args.student,{
+        where: {
+            id: args.id
+        }
     });
 }
 
-function updateStudent(student){
-    console.log("update student mutation called");
-}
-
-function deleteStudent(id){
+function deleteStudent(root,args){
     console.log("delete student mutation called");
+    console.log(args);
+    return Student.destroy({
+        where: {
+            id: args.id
+        }
+    });
 }
 
 // Exports
 module.exports = {
     getStudent,
+    getAllStudents,
     createStudent,
     updateStudent,
     deleteStudent

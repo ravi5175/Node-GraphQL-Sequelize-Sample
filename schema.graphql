@@ -7,11 +7,12 @@ type Student{
 
 type Query{
     getStudent(id: ID!): Student
+    getAllStudents: [Student]
 }
 
 type Mutation{
     createStudent(student : StudentInput) : Student
-    updateStudent(student: StudentInput) : Student
+    updateStudent(student: StudentInput!, id: ID!) : Student
     deleteStudent(id: ID!) : Student
 }
 

@@ -4,7 +4,8 @@ const {
     getStudent,
     createStudent,
     updateStudent,
-    deleteStudent
+    deleteStudent,
+    getAllStudents,
 } = require("./resolverImpl/student");
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
     },
     Query: {
         getStudent : getStudent,
+        getAllStudents : getAllStudents
     }
 }

@@ -26,9 +26,7 @@ app.use('/graphql', graphqlHTTP({
 }));
 
 sequelize
-    .sync({
-        force: true,
-    })
+    .sync({})
     .then((result) => {
         console.log(result);
         app.listen( process.env.PORT ,()=>{
