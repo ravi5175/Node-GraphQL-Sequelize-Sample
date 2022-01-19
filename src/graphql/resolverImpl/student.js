@@ -1,7 +1,9 @@
 const { Student } = require('../../database/models/student');
 // Queries
-function getStudent(id){
+function getStudent(root,args){
     console.log("get student query called");
+    const student = Student.findOne({where:{id: args.id}});
+    return student;
 }
 
 function getAllStudents(){

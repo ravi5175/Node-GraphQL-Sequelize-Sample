@@ -22,7 +22,10 @@ const schema = makeExecutableSchema({
 
 app.use('/graphql', graphqlHTTP({
     schema,
-    graphiql: true
+    graphiql: true,
+    customFormatErrorFn(err){
+        console.log(err);
+    }
 }));
 
 sequelize
